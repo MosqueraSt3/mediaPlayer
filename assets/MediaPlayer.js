@@ -1,6 +1,14 @@
 class MediaPlayer {
     constructor(config){
         this.media = config.el
+        this.plugins = config.plugins || []
+        this._initPlugins()
+    }
+
+    _initPlugins(){
+        this.plugins.forEach(plugin => {
+            plugin.run(this)
+        });
     }
 
     play(){
@@ -13,7 +21,15 @@ class MediaPlayer {
 
     togglePlay(){
         this.media.paused ? this.play() : this.pause()
-    } 
+    }
+    
+    mute(){
+        this.media.muted = true
+    }
+
+    unmute(){
+        this.media.muted = false
+    }
 }
 
 export default MediaPlayer
