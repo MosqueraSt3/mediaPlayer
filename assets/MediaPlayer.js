@@ -30,6 +30,10 @@ class MediaPlayer {
     unmute(){
         this.media.muted = false
     }
+
+    toggleMute(){
+        this.media.muted ? this.unmute() : this.mute()
+    }
 }
 
 export default MediaPlayer
