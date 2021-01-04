@@ -1,11 +1,14 @@
 class MediaPlayer {
+    private media: HTMLMediaElement
+    private plugins: Array<any>
+
     constructor(config){
         this.media = config.el
         this.plugins = config.plugins || []
-        this._initPlugins()
+        this.initPlugins()
     }
 
-    _initPlugins(){
+    private initPlugins(){
         this.plugins.forEach(plugin => {
             plugin.run(this)
         });

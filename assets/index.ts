@@ -1,10 +1,10 @@
-import MediaPlayer from './MediaPlayer.js'
-import AutoPlay from './plugins/AutoPlay.js'
-import AutoPause from './plugins/AutoPause.js'
+import MediaPlayer from './MediaPlayer'
+import AutoPlay from './plugins/AutoPlay'
+import AutoPause from './plugins/AutoPause'
 
 const video = document.querySelector('video')
-const play = document.getElementById('play')
-const mute = document.getElementById('mute')
+const play: HTMLElement = document.getElementById('play')
+const mute: HTMLElement = document.getElementById('mute')
 
 const player = new MediaPlayer({ el: video, plugins: [new AutoPlay(), new AutoPause()]})
 play.onclick = () => player.togglePlay()
